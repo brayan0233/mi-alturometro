@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alturómetro Digital</title>
+</head>
+<body>
+
+    <h1>Bienvenido a tu Alturómetro Digital</h1>
+
+    <form id="alturaForm">
+        <label for="altura">Ingrese su altura en metros:</label>
+        <input type="number" step="0.01" id="altura" required>
+        <button type="button" onclick="calcularAltura()">Calcular</button>
+    </form>
+
+    <div id="resultadoAltura"></div>
+
+    <script>
+        function calcularAltura() {
+            var altura = parseFloat(document.getElementById("altura").value);
+
+            if (!isNaN(altura)) {
+                var resultadoDiv = document.getElementById("resultadoAltura");
+
+                if (altura >= 1.71) {
+                    resultadoDiv.innerHTML = "Tu altura es: " + altura + " m. Eres una persona alta.";
+                } else if (altura >= 1.51) {
+                    resultadoDiv.innerHTML = "Tu altura es: " + altura + " m. Eres una persona de altura media.";
+                } else {
+                    resultadoDiv.innerHTML = "Tu altura es: " + altura + " m. Eres una persona de altura baja.";
+                }
+            } else {
+                alert("Ingrese una altura válida.");
+            }
+        }
+    </script>
+
+</body>
+</html>
